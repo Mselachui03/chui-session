@@ -80,27 +80,25 @@ router.get('/', async (req, res) => {
 *SESSION GENERATED SUCCESSFULY* ✅
 
 *Gɪᴠᴇ ᴀ ꜱᴛᴀʀ ᴛᴏ ʀᴇᴘᴏ ꜰᴏʀ ᴄᴏᴜʀᴀɢᴇ* 🌟
-https://github.com/Tohidkhan6332/TOHID-KHAN
+https://github.com/Mselachui03/𝐌𝐒𝐄𝐋𝐀-𝐂𝐇𝐔𝐈-𝐌𝐀𝐒𝐓𝐄𝐑-𝐁𝐎𝐓
 
-*Tᴇʟᴇɢʀᴀᴍ Gʀᴏᴜᴘ* 🌟
-https://t.me/Tohid_Tech
+*Tᴇʟᴇɢʀᴀᴍ Gʀᴏᴜᴘ* 🐯
+https://t.me/Mselachui_Tech
 
-*WʜᴀᴛsAᴘᴘ Gʀᴏᴜᴘ* 🌟
-https://chat.whatsapp.com/IqRWSp7pXx8DIMtSgDICGu
+*WʜᴀᴛsAᴘᴘ Gʀᴏᴜᴘ* 🐯
+https://chat.whatsapp.com/Bqb6oEUxAneAqxBUBfNdLr
 
-*WʜᴀᴛsAᴘᴘ ᴄʜᴇɴɴᴀʟ* 🌟
-https://whatsapp.com/channel/0029VaGyP933bbVC7G0x0i2T
+*WʜᴀᴛsAᴘᴘ ᴄʜᴇɴɴᴀʟ* 🐯
+https://whatsapp.com/channel/0029VakhqAaLtOjBJOL9Wn1q
 
-*Yᴏᴜ-ᴛᴜʙᴇ ᴛᴜᴛᴏʀɪᴀʟꜱ* 🌟 
-https://youtube.com/Tohidkhan_6332
+*Yᴏᴜ-ᴛᴜʙᴇ ᴛᴜᴛᴏʀɪᴀʟꜱ* 🐯 
+https://youtube.com/Mselachui
 
-*ɢɪᴛʜᴜʙ* 🌟
-http://GitHub.com/Tohidkhan6332
+*ɢɪᴛʜᴜʙ* 🐯
+http://GitHub.com/Mselachui03
 
-*Wᴇʙsɪᴛᴇ* 🌟
-https://tohid-khan-web.vercel.app/
 
-*TOHID-KHAN--WHATTSAPP-BOT* 🥀
+*𝐌𝐒𝐄𝐋𝐀-𝐂𝐇𝐔𝐈-𝐌𝐀𝐒𝐓𝐄𝐑-𝐁𝐎𝐓--WHATTSAPP-BOT* 🥀
 ` });
 
                     // Clean up session after use
