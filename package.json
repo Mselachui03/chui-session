@@ -10,7 +10,7 @@
   "scripts": {
     "start": "pm2 start index.js --deep-monitoring --attach --name qasim",
     "stop": "pm2 stop tohid",
-    "restart": "pm2 restart tohid",
+    "restart": "pm2 restart mselachui",
     "dev": "nodemon index.js"
   },
   "keywords": [
