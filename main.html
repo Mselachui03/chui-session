@@ -6,84 +6,131 @@
   <style>
     body {
       display: flex;
-      flex-direction: column; /* Stack items vertically */
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
       margin: 0;
-      background-image: url("https://files.catbox.moe/bz7qwz.jpg"); /* Set the background image */
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
+      font-family: 'Roboto', 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #4e9f3d, #34d7b7, #55c7f7);
+      background-size: 300% 300%;
+      animation: gradientAnimation 10s ease infinite;
+    }
+
+    @keyframes gradientAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      color: white;
+      font-size: 3.5rem;
+      margin-bottom: 40px;
+      text-align: center;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 700;
+      text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     }
 
     .btn {
-      --color: #FFC0CB;
-      --color2: rgb(10, 25, 30);
-      width: 200px; /* Set a fixed width for the buttons */
-      padding: 0.8em 1.75em;
-      background-color: transparent;
-      border-radius: 6px;
-      border: .3px solid var(--color);
-      transition: .5s;
+      width: 250px;
+      padding: 15px 25px;
+      margin: 10px;
+      background: transparent;
+      border-radius: 25px;
+      border: 2px solid #ffffff;
+      font-size: 18px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: white;
+      text-align: center;
       position: relative;
       overflow: hidden;
       cursor: pointer;
-      z-index: 1;
-      font-weight: 900;
-      font-size: 17px;
-      font-family: 'Roboto', 'Segoe UI', sans-serif;
-      text-transform: uppercase;
-      color: var(--color);
-      margin-bottom: 10px; /* Add margin to separate buttons */
+      transition: all 0.4s ease;
+      box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
     }
 
-    .btn::after, .btn::before {
-      content: '';
-      display: block;
-      height: 100%;
-      width: 100%;
-      transform: skew(90deg) translate(-50%, -50%);
-      position: absolute;
-      inset: 50%;
-      left: 25%;
-      z-index: -1;
-      transition: .5s ease-out;
-      background-color: var(--color);
-    }
-
+    /* Add shine effect on hover */
     .btn::before {
+      content: '';
+      position: absolute;
       top: -50%;
-      left: -25%;
-      transform: skew(90deg) rotate(180deg) translate(-50%, -50%);
+      left: -50%;
+      height: 200%;
+      width: 200%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: skewX(45deg);
+      transition: all 0.5s;
     }
 
     .btn:hover::before {
-      transform: skew(45deg) rotate(180deg) translate(-50%, -50%);
-    }
-
-    .btn:hover::after {
-      transform: skew(45deg) translate(-50%, -50%);
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
     }
 
     .btn:hover {
-      color: var(--color2);
+      background-color: #ffffff;
+      color: #333;
+      box-shadow: 0 10px 25px rgba(255, 255, 255, 0.5);
+      transform: scale(1.05);
     }
 
     .btn:active {
-      filter: brightness(.7);
-      transform: scale(.98);
+      filter: brightness(0.9);
+      transform: scale(0.98);
     }
+
+    /* Responsive Design */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+      .btn {
+        width: 80%;
+        padding: 12px 20px;
+        font-size: 16px;
+      }
+    }
+
+    @media (min-width: 600px) and (max-width: 1024px) {
+      h1 {
+        font-size: 2.8rem;
+      }
+      .btn {
+        width: 220px;
+        padding: 14px 22px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      h1 {
+        font-size: 3.5rem;
+      }
+      .btn {
+        width: 250px;
+        padding: 15px 25px;
+      }
+    }
+
   </style>
 </head>
 <body>
 
-  <button onclick="window.open(`/pair`)" class="btn">pair code</button>
-  <button onclick="window.open(`https://github.com/Mselachui03`)" class="btn">github</button>
-  <button onclick="window.open(`https://youtube.com/@Mselachui`)" class="btn">youtube</button>
-  <button onclick="window.open(`https://wa.me/260774358600?text=Hello+𝕄𝕣+𝙈𝙎𝙀𝙇𝘼-𝘾𝙃𝙐𝙄`)" class="btn">owner</button>
-  <button onclick="window.open(`https://whatsapp.com/channel/0029VakhqAaLtOjBJOL9Wn1q`)" class="btn">channel</button>
-  <button onclick="window.open(`https://chat.whatsapp.com/Bqb6oEUxAneAqxBUBfNdLr`)" class="btn">group</button>
+      <!-- Buttons -->
+  
+  <button onclick="window.open(`/qr`)" class="btn">QR Code</button>
+  <button onclick="window.open(`/pair`)" class="btn">Pair Code</button>
+  <button onclick="window.open(`https://github.com/Tohidkhan6332`)" class="btn">GITHUB</button>
+  <button onclick="window.open(`https://github.com/Tohidkhan6332/TOHID-AI`)" class="btn">REPO</button>
+  <button onclick="window.open(`https://wa.me/917849917350?text=Hello%20𝕄𝕣%20𝕋𝕠𝕙𝕚𝕕%20I%20need%20your%20help%20my%20name%20is%20___`)" class="btn">WHATSAPP</button>
+  <button onclick="window.open(`https://dashboard.heroku.com/new?template=https://github.com/Tohidkhan6332/TOHID-AI`)" class="btn">DEPLOY</button>
+  <button onclick="window.open(`https://chat.whatsapp.com/IqRWSp7pXx8DIMtSgDICGu`)" class="btn">GROUP</button>
+  <button onclick="window.open(`https://whatsapp.com/channel/0029VaGyP933bbVC7G0x0i2T`)" class="btn">CHANNEL</button>
   
 </body>
 </html>
