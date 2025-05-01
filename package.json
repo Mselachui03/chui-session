@@ -9,15 +9,15 @@
   },
   "scripts": {
     "start": "pm2 start index.js --deep-monitoring --attach --name qasim",
-    "stop": "pm2 stop mselachui",
+    "stop": "pm2 stop tohid",
     "restart": "pm2 restart tohid",
     "dev": "nodemon index.js"
   },
   "keywords": [
-    "baileysQr", "MdLogin", "MSELA-CHUI-BOT", "whatsapp-bot", "BotWhatsapp", "whatsapp-web", "whatsapp", "session", "pair-code", "express-pairing", "whatsappbot", "express-session", "whatsapp-api", "pairing", "baileys-md", "baileys-bot",
+    "baileysQr", "MdLogin", "TOHID-AI", "whatsapp-bot", "BotWhatsapp", "whatsapp-web", "whatsapp", "session", "pair-code", "express-pairing", "whatsappbot", "express-session", "whatsapp-api", "pairing", "baileys-md", "baileys-bot",
     "whatsappLogin", "adiwajshing/baileys", "baileys-md-qr", "multi-device-qr", "whiskey sockets/baileys", "md-pair", "bot-pair", "baileysQrScanner", "botpairing", "WhatsAppPairing", "LinkDevice"
   ],
-  "author": "Mselachui03",
+  "author": "Tohidkhan6332",
   "license": "MIT",
   "dependencies": {
     "@hapi/boom": "^10.0.1",
