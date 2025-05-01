@@ -123,4 +123,4 @@ Note: Make Sure Add Your Email And Password ( Required In mega.js ) Before Runni
 
 | [![Msela Chui](https://github.com/Mselachui03.png?size=100)](https://github.com/Mselachui03) |
 | --- |
-| [Qasim Ali](https://github.com/Mselachui03) |
+| [MSELA-CHUI](https://github.com/Mselachui03) |
