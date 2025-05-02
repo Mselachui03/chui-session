@@ -115,12 +115,12 @@ Note: Make Sure Add Your Email And Password ( Required In mega.js ) Before Runni
 
 ## OTHER PROJECTS:
 
-- [PASTE SESSION](https://github.com/Mselachui03/CHUI-MASTER-BOT-PAIR)
-- [WHATSAPP BOT](https://github.com/Mselachui03/CHUI-MASTER-BOT)
-- [TELEGRAM BOT](https://github.com/Mselachui03/Telegram-bot#readme)
+- [PASTE SESSION](https://github.com/Tohidkhan6332/TOHID-AI-PAIR)
+- [WHATSAPP BOT](https://github.com/Tohidkhan6332/TOHID-AI)
+- [TELEGRAM BOT](https://github.com/Tohidkhan6332/Telegram-bot#readme)
 
 
 
-| [![Msela Chui](https://github.com/Mselachui03.png?size=100)](https://github.com/Mselachui03) |
+| [![Tohid Khan](https://github.com/Tohidkhan6332.png?size=100)](https://github.com/Tohidkhan6332) |
 | --- |
-| [MSELA-CHUI](https://github.com/Mselachui03) |
+| [Qasim Ali](https://github.com/Tohidkhan6332) |
