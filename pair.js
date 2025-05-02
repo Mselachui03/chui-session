@@ -5,9 +5,9 @@ let router = express.Router();
 const pino = require("pino");
 const { Boom } = require("@hapi/boom");
 const MESSAGE = process.env.MESSAGE || `
-*SESSION GENERATED SUCCESSFULY* 🐯
+*SESSION GENERATED SUCCESSFULY* ✅
 
-*Gɪᴠᴇ ᴀ ꜱᴛᴀʀ ᴛᴏ ʀᴇᴘᴏ ꜰᴏʀ ᴄᴏᴜʀᴀɢᴇ* 🐯
+*Gɪᴠᴇ ᴀ ꜱᴛᴀʀ ᴛᴏ ʀᴇᴘᴏ ꜰᴏʀ ᴄᴏᴜʀᴀɢᴇ* 
 https://github.com/Mselachui03/CHUI-MASTER-BOT
 
 *Tᴇʟᴇɢʀᴀᴍ Gʀᴏᴜᴘ* 🐯
@@ -16,7 +16,7 @@ https://t.me/Mselachui_Tech
 *WʜᴀᴛsAᴘᴘ Gʀᴏᴜᴘ* 🐯
 https://chat.whatsapp.com/Bqb6oEUxAneAqxBUBfNdLr
 
-*WʜᴀᴛsAᴘᴘ ᴄʜAɴɴᴀʟ* 
+*WʜᴀᴛsAᴘᴘ ᴄʜAɴɴᴀʟ* 🐯
 https://whatsapp.com/channel/0029VakhqAaLtOjBJOL9Wn1q
 
 *Yᴏᴜ-ᴛᴜʙᴇ ᴛᴜᴛᴏʀɪᴀʟꜱ* 🐯 
@@ -25,10 +25,10 @@ https://www.youtube.com/@mselachui
 *ɢɪᴛʜᴜʙ* 🐯
 http://GitHub.com/Mselachui03
 
-*Wᴇʙsɪᴛᴇ* 🌟
+*Wᴇʙsɪᴛᴇ* 🐯
 https://msela-chui-web.vercel.app/
 
-*MSELA-CHUI-MASTER-BOT 🐯 WHATTSAPP-BOT* 🥀
+*MSELA-CHUI--WHATTSAPP-BOT* 🥀
 `;
 
 const { upload } = require('./mega');
