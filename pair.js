@@ -7,19 +7,22 @@ const { Boom } = require("@hapi/boom");
 const MESSAGE = process.env.MESSAGE || `
 *SESSION GENERATED SUCCESSFULY* ✅
 
-*Gɪᴠᴇ ᴀ ꜱᴛᴀʀ ᴛᴏ ʀᴇᴘᴏ ꜰᴏʀ ᴄᴏᴜʀᴀɢᴇ* 🌟
-https://github.com/Lazack28/Lazack-device
+*Gɪᴠᴇ ᴀ ꜱᴛᴀʀ ᴛᴏ ʀᴇᴘᴏ ꜰᴏʀ ᴄᴏᴜʀᴀɢᴇ* 🐯
+https://github.com/mselachui03/CHUI-MASTER-BOT
 
-*Yᴏᴜ-ᴛᴜʙᴇ ᴛᴜᴛᴏʀɪᴀʟꜱ* 🌟 
-https://youtube.com/@lazaromtaju
+*Yᴏᴜ-ᴛᴜʙᴇ ᴛᴜᴛᴏʀɪᴀʟꜱ* 🐯
+https://youtube.com/@mselachui
 
-*ɢɪᴛʜᴜʙ* 🌟
-http://GitHub.com/Lazack28
+*ɢɪᴛʜᴜʙ* 🐯
+http://GitHub.com/mselachui03
 
-*Wᴇʙsɪᴛᴇ* 🌟
-https://pharmasjut.xyz
+*CHANNEL* 🐯
+https://whatsapp.com/channel/0029VakhqAaLtOjBJOL9Wn1q
 
-*LAZACK--WHATTSAPP-BOT* 🥀
+*WHATSAPP GROUP* 🐯
+https://chat.whatsapp.com/Bqb6oEUxAneAqxBUBfNdLr
+
+*MSELA-CHUI--WHATTSAPP-BOT* ,😻
 `;
 
 const { upload } = require('./mega');
