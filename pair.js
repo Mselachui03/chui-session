@@ -8,27 +8,18 @@ const MESSAGE = process.env.MESSAGE || `
 *SESSION GENERATED SUCCESSFULY* ✅
 
 *Gɪᴠᴇ ᴀ ꜱᴛᴀʀ ᴛᴏ ʀᴇᴘᴏ ꜰᴏʀ ᴄᴏᴜʀᴀɢᴇ* 🌟
-https://github.com/Tohidkhan6332/TOHID-AI
-
-*Tᴇʟᴇɢʀᴀᴍ Gʀᴏᴜᴘ* 🌟
-https://t.me/Tohid_Tech
-
-*WʜᴀᴛsAᴘᴘ Gʀᴏᴜᴘ* 🌟
-https://chat.whatsapp.com/IqRWSp7pXx8DIMtSgDICGu
-
-*WʜᴀᴛsAᴘᴘ ᴄʜᴇɴɴᴀʟ* 🌟
-https://whatsapp.com/channel/0029VaGyP933bbVC7G0x0i2T
+https://github.com/Lazack28/Lazack-device
 
 *Yᴏᴜ-ᴛᴜʙᴇ ᴛᴜᴛᴏʀɪᴀʟꜱ* 🌟 
-https://youtube.com/Tohidkhan_6332
+https://youtube.com/@lazaromtaju
 
 *ɢɪᴛʜᴜʙ* 🌟
-http://GitHub.com/Tohidkhan6332
+http://GitHub.com/Lazack28
 
 *Wᴇʙsɪᴛᴇ* 🌟
-https://tohid-khan-web.vercel.app/
+https://pharmasjut.xyz
 
-*TOHID-AI--WHATTSAPP-BOT* 🥀
+*LAZACK--WHATTSAPP-BOT* 🥀
 `;
 
 const { upload } = require('./mega');
@@ -42,15 +33,15 @@ const {
 } = require("@whiskeysockets/baileys");
 
 // Ensure the directory is empty when the app starts
-if (fs.existsSync('./auth_info_baileys')) {
-    fs.emptyDirSync(__dirname + '/auth_info_baileys');
+if (fs.existsSync('./session')) {
+    fs.emptyDirSync(__dirname + '/session');
 }
 
 router.get('/', async (req, res) => {
     let num = req.query.number;
 
     async function SUHAIL() {
-        const { state, saveCreds } = await useMultiFileAuthState(`./auth_info_baileys`);
+        const { state, saveCreds } = await useMultiFileAuthState(`./session`);
         try {
             let Smd = makeWASocket({
                 auth: {
@@ -78,9 +69,9 @@ router.get('/', async (req, res) => {
                 if (connection === "open") {
                     try {
                         await delay(10000);
-                        if (fs.existsSync('./auth_info_baileys/creds.json'));
+                        if (fs.existsSync('./session/creds.json'));
 
-                        const auth_path = './auth_info_baileys/';
+                        const auth_path = './session/';
                         let user = Smd.user.id;
 
                         // Define randomMegaId function to generate random IDs
@@ -103,14 +94,14 @@ router.get('/', async (req, res) => {
                         let msgsss = await Smd.sendMessage(user, { text: Scan_Id });
                         await Smd.sendMessage(user, { text: MESSAGE }, { quoted: msgsss });
                         await delay(1000);
-                        try { await fs.emptyDirSync(__dirname + '/auth_info_baileys'); } catch (e) {}
+                        try { await fs.emptyDirSync(__dirname + '/session'); } catch (e) {}
 
                     } catch (e) {
                         console.log("Error during file upload or message send: ", e);
                     }
 
                     await delay(100);
-                    await fs.emptyDirSync(__dirname + '/auth_info_baileys');
+                    await fs.emptyDirSync(__dirname + '/session');
                 }
 
                 // Handle connection closures
@@ -139,7 +130,7 @@ router.get('/', async (req, res) => {
             exec('pm2 restart tohid');
             console.log("Service restarted due to error");
             SUHAIL();
-            await fs.emptyDirSync(__dirname + '/auth_info_baileys');
+            await fs.emptyDirSync(__dirname + '/session');
             if (!res.headersSent) {
                 await res.send({ code: "Try After Few Minutes" });
             }

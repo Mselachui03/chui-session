@@ -15,28 +15,6 @@ const { Boom } = require("@hapi/boom");
 const MESSAGE = process.env.MESSAGE ||  `
 *SESSION GENERATED SUCCESSFULY* ✅
 
-*Gɪᴠᴇ ᴀ ꜱᴛᴀʀ ᴛᴏ ʀᴇᴘᴏ ꜰᴏʀ ᴄᴏᴜʀᴀɢᴇ* 🌟
-https://github.com/Tohidkhan6332/TOHID-AI
-
-*Tᴇʟᴇɢʀᴀᴍ Gʀᴏᴜᴘ* 🌟
-https://t.me/Tohid_Tech
-
-*WʜᴀᴛsAᴘᴘ Gʀᴏᴜᴘ* 🌟
-https://chat.whatsapp.com/IqRWSp7pXx8DIMtSgDICGu
-
-*WʜᴀᴛsAᴘᴘ ᴄʜᴇɴɴᴀʟ* 🌟
-https://whatsapp.com/channel/0029VaGyP933bbVC7G0x0i2T
-
-*Yᴏᴜ-ᴛᴜʙᴇ ᴛᴜᴛᴏʀɪᴀʟꜱ* 🌟 
-https://youtube.com/Tohidkhan_6332
-
-*ɢɪᴛʜᴜʙ* 🌟
-http://GitHub.com/Tohidkhan6332
-
-*Wᴇʙsɪᴛᴇ* 🌟
-https://tohid-khan-web.vercel.app/
-
-*TOHID-Ai--WHATTSAPP-BOT* 🥀
 `
 
 
