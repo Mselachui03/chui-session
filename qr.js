@@ -13,48 +13,8 @@ const fs = require("fs-extra");
 const { Boom } = require("@hapi/boom");
 
 const MESSAGE = process.env.MESSAGE ||  `
-╭━━━〔 *TOHID_MD SESSION* 〕━━━┈⊷
-┃◈├•*SESSION GENERATED SUCCESSFULY* ✅
-┃◈┃
-┃◈├•*Gɪᴠᴇ ᴀ ꜱᴛᴀʀ ᴛᴏ ʀᴇᴘᴏ ꜰᴏʀ ᴄᴏᴜʀᴀɢᴇ* 🌟
-┃◈├•https://github.com/Tohidkhan6332/TOHID_MD
-┃◈┃
-┃◈├•*Tᴇʟᴇɢʀᴀᴍ Gʀᴏᴜᴘ* 🌟
-┃◈├•https://t.me/Tohid_Tech
-┃◈┃
-┃◈├•*WʜᴀᴛsAᴘᴘ Gʀᴏᴜᴘ* 🌟
-┃◈├•https://chat.whatsapp.com/IqRWSp7pXx8DIMtSgDICGu
-┃◈┃
-┃◈├•*WʜᴀᴛsAᴘᴘ ᴄʜᴇɴɴᴀʟ* 🌟
-┃◈├•https://whatsapp.com/channel/0029VaGyP933bbVC7G0x0i2T
-┃◈┃
-┃◈┃*Yᴏᴜ-ᴛᴜʙᴇ ᴛᴜᴛᴏʀɪᴀʟꜱ* 🌟 
-┃◈├•https://youtube.com/Tohidkhan_6332
-┃◈┃
-┃◈├•*ɢɪᴛʜᴜʙ* 🌟
-┃◈├•http://GitHub.com/Tohidkhan6332
-┃◈┃
-┃◈├•*Wᴇʙsɪᴛᴇ* 🌟
-┃◈├•https://tohid-khan-web.vercel.app/
-┃◈┃
-┃◈├•*TOHID_MD--WHATTSAPP-BOT* 🥀
-┃◈╰──────────●●►
-┃◈╭─────────────●●►
-┃◈├ ╔═╦═╗───╔══╗╔╗╔╗╔╗
-┃◈├ ║║║║╠╦╦═╩╗╔╩╣╚╬╬╝║
-┃◈├ ║║║║║╔╩══╣║╬║║║║╬║
-┃◈├ ╚╩═╩╩╝───╚╩═╩╩╩╩═╝
-┃◈╰─────────────●●►
-╰─────────────●●►
-______________________________
-Use your Session ID Above to Deploy your Bot.
-Check on YouTube Channel for Deployment 
-Procedure(Ensure you have Github Account and Billed 
-Heroku Account First.)
-Don't Forget To Give Star⭐ To My Repo
-╭────────────────────┈⊷
-├━━━〔 *TOHID_MD SESSION* 〕━━━┈⊷
-╰────────────────────┈⊷
+╭━━━〔 *𝐌𝐒𝐄𝐋𝐀-𝐂𝐇𝐔𝐈-𝐁𝐎𝐓 SESSION* 〕━━━┈⊷
+┃◈├•*SESSION GENERATED SUCCESSFULY* 
 `
 
 
