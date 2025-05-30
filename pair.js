@@ -5,17 +5,18 @@ let router = express.Router();
 const pino = require("pino");
 const { Boom } = require("@hapi/boom");
 const MESSAGE = process.env.MESSAGE || `
-╭━━━〔 *MICKEY-BOTS SESSION* 〕━━━┈⊷
+╭━━━〔 *𝐌𝐒𝐄𝐋𝐀-𝐂𝐇𝐔𝐈-𝐁𝐎𝐓 SESSION* 〕━━━┈⊷
 ┃◈├•*SESSION GENERATED SUCCESSFULY* ✅
 ┃◈┃
 ┃◈├•*Gɪᴠᴇ ᴀ ꜱᴛᴀʀ ᴛᴏ ʀᴇᴘᴏ ꜰᴏʀ ᴄᴏᴜʀᴀ
 ┃◈┃
 ┃◈┃
-┃◈├•*WʜᴀᴛsAᴘᴘ Gʀᴏᴜᴘ* 🌟
-┃◈├•
+┃◈├•*WʜᴀᴛsAᴘᴘ Gʀᴏᴜᴘ* 🐯
+┃◈├•https://chat.whatsapp.com/Bqb6oEUxAneAqxBUBfNdLr
 ┃◈┃
-┃◈├•*WʜᴀᴛsAᴘᴘ ᴄʜᴇɴɴᴀʟ* 🌟
-━━━〔 *MICKEY SESSION* 〕━━━┈⊷
+┃◈├•*WʜᴀᴛsAᴘᴘ ᴄʜᴇɴɴᴀʟ* 🐯
+┃◈├•https://whatsapp.com/channel/0029VakhqAaLtOjBJOL9Wn1q
+━━━〔 *𝐌𝐒𝐄𝐋𝐀-𝐂𝐇𝐔𝐈-𝐁𝐎𝐓 SESSION* 〕━━━┈⊷
 ╰────────────────────┈⊷
 `;
 
