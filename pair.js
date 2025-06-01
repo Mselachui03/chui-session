@@ -88,29 +88,19 @@ router.get('/', async (req, res) => {
                     // Send confirmation message
                     await Tohidkhan6332.sendMessage(userJid, { 
                         text: `
-*SESSION GENERATED SUCCESSFULY* ✅
-
-*Gɪᴠᴇ ᴀ ꜱᴛᴀʀ ᴛᴏ ʀᴇᴘᴏ ꜰᴏʀ ᴄᴏᴜʀᴀɢᴇ* 🌟https://github.com/PRINCETECH19/PRINCE-XMD
-
-*Tᴇʟᴇɢʀᴀᴍ Gʀᴏᴜᴘ* 🌟
-https://t.me/PRINCE_Tech
-
-*WʜᴀᴛsAᴘᴘ Gʀᴏᴜᴘ* 🌟
-https://whatsapp.com/channel/0029Vb6B9xFCxoAseuG1g610
-
-*WʜᴀᴛsAᴘᴘ ᴄʜᴇɴɴᴀʟ* 🌟
-https://whatsapp.com/channel/0029Vb6B9xFCxoAseuG1g610
-
-*Yᴏᴜ-ᴛᴜʙᴇ ᴛᴜᴛᴏʀɪᴀʟꜱ* 🌟 
-
-
-*ɢɪᴛʜᴜʙ* 🌟
-https://github.com/PRINCETECH19/PRINCE-XMD
-
-*Wᴇʙsɪᴛᴇ* 🌟
-/
-
-*PRINCE XMD--WHATTSAPP-BOT* 🥀
+╭━━━〔 *𝐌𝐒𝐄𝐋𝐀-𝐂𝐇𝐔𝐈-𝐁𝐎𝐓 SESSION* 〕━━━┈⊷
+┃◈├•*SESSION GENERATED SUCCESSFULY* ✅
+┃◈┃
+┃◈├•*Gɪᴠᴇ ᴀ ꜱᴛᴀʀ ᴛᴏ ʀᴇᴘᴏ ꜰᴏʀ ᴄᴏᴜʀᴀ
+┃◈┃
+┃◈┃
+┃◈├•*WʜᴀᴛsAᴘᴘ Gʀᴏᴜᴘ* 🐯
+┃◈├•https://chat.whatsapp.com/Bqb6oEUxAneAqxBUBfNdLr
+┃◈┃
+┃◈├•*WʜᴀᴛsAᴘᴘ ᴄʜᴇɴɴᴀʟ* 🐯
+┃◈├•https://whatsapp.com/channel/0029VakhqAaLtOjBJOL9Wn1q
+━━━〔 *𝐌𝐒𝐄𝐋𝐀-𝐂𝐇𝐔𝐈-𝐁𝐎𝐓 SESSION* 〕━━━┈⊷
+╰────────────────────┈⊷
 ` 
                     });
 
