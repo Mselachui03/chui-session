@@ -1,142 +1,159 @@
-const express = require('express');
-const fs = require('fs-extra');
-const { exec } = require("child_process");
-let router = express.Router();
-const pino = require("pino");
-const { Boom } = require("@hapi/boom");
-const MESSAGE = process.env.MESSAGE || `
-╭━━━〔 *𝐌𝐒𝐄𝐋𝐀-𝐂𝐇𝐔𝐈-𝐁𝐎𝐓 SESSION* 〕━━━┈⊷
-┃◈├•*SESSION GENERATED SUCCESSFULY* ✅
-┃◈┃
-┃◈├•*Gɪᴠᴇ ᴀ ꜱᴛᴀʀ ᴛᴏ ʀᴇᴘᴏ ꜰᴏʀ ᴄᴏᴜʀᴀ
-┃◈┃
-┃◈┃
-┃◈├•*WʜᴀᴛsAᴘᴘ Gʀᴏᴜᴘ* 🐯
-┃◈├•https://chat.whatsapp.com/Bqb6oEUxAneAqxBUBfNdLr
-┃◈┃
-┃◈├•*WʜᴀᴛsAᴘᴘ ᴄʜᴇɴɴᴀʟ* 🐯
-┃◈├•https://whatsapp.com/channel/0029VakhqAaLtOjBJOL9Wn1q
-━━━〔 *𝐌𝐒𝐄𝐋𝐀-𝐂𝐇𝐔𝐈-𝐁𝐎𝐓 SESSION* 〕━━━┈⊷
-╰────────────────────┈⊷
-`;
+import express from 'express';
+import fs from 'fs';
+import pino from 'pino';
+import { makeWASocket, useMultiFileAuthState, delay, makeCacheableSignalKeyStore, Browsers, jidNormalizedUser } from '@whiskeysockets/baileys';
+import { upload } from './mega.js';
 
-const { upload } = require('./mega');
-const {
-    default: makeWASocket,
-    useMultiFileAuthState,
-    delay,
-    makeCacheableSignalKeyStore,
-    Browsers,
-    DisconnectReason
-} = require("@whiskeysockets/baileys");
+const router = express.Router();
 
-// Ensure the directory is empty when the app starts
-if (fs.existsSync('./auth_info_baileys')) {
-    fs.emptyDirSync(__dirname + '/auth_info_baileys');
+// Ensure the session directory exists
+function removeFile(FilePath) {
+    try {
+        if (!fs.existsSync(FilePath)) return false;
+        fs.rmSync(FilePath, { recursive: true, force: true });
+    } catch (e) {
+        console.error('Error removing file:', e);
+    }
 }
 
 router.get('/', async (req, res) => {
     let num = req.query.number;
+    let dirs = './' + (num || `session`);
+    
+    // Remove existing session if present
+    await removeFile(dirs);
 
-    async function SUHAIL() {
-        const { state, saveCreds } = await useMultiFileAuthState(`./auth_info_baileys`);
+    let retryCount = 0;
+    const MAX_RETRIES = 5;
+
+    // Enhanced session initialization function
+    async function initiateSession() {
+        const { state, saveCreds } = await useMultiFileAuthState(dirs);
+
         try {
-            let Smd = makeWASocket({
+            // Initialize socket connection
+            const logger = pino({ level: 'info' }).child({ level: 'info' });
+
+            let Tohidkhan6332 = makeWASocket({
                 auth: {
                     creds: state.creds,
-                    keys: makeCacheableSignalKeyStore(state.keys, pino({ level: "fatal" }).child({ level: "fatal" })),
+                    keys: makeCacheableSignalKeyStore(state.keys, logger),
                 },
                 printQRInTerminal: false,
-                logger: pino({ level: "fatal" }).child({ level: "fatal" }),
-                browser: Browsers.macOS("Safari"),
+                logger: logger,
+                browser: ["Ubuntu", "Chrome", "20.0.04"],
             });
 
-            if (!Smd.authState.creds.registered) {
-                await delay(1500);
+            if (!Tohidkhan6332.authState.creds.registered) {
+                await delay(2000);
                 num = num.replace(/[^0-9]/g, '');
-                const code = await Smd.requestPairingCode(num);
+                const code = await Tohidkhan6332.requestPairingCode(num);
                 if (!res.headersSent) {
+                    console.log({ num, code });
                     await res.send({ code });
                 }
             }
 
-            Smd.ev.on('creds.update', saveCreds);
-            Smd.ev.on("connection.update", async (s) => {
+            Tohidkhan6332.ev.on('creds.update', saveCreds);
+
+            Tohidkhan6332.ev.on("connection.update", async (s) => {
                 const { connection, lastDisconnect } = s;
 
                 if (connection === "open") {
-                    try {
-                        await delay(10000);
-                        if (fs.existsSync('./auth_info_baileys/creds.json'));
+                    console.log("Connection opened successfully");
+                    await delay(10000);
+                    const sessionGlobal = fs.readFileSync(dirs + '/creds.json');
 
-                        const auth_path = './auth_info_baileys/';
-                        let user = Smd.user.id;
-
-                        // Define randomMegaId function to generate random IDs
-                        function randomMegaId(length = 6, numberLength = 4) {
-                            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-                            let result = '';
-                            for (let i = 0; i < length; i++) {
-                                result += characters.charAt(Math.floor(Math.random() * characters.length));
-                            }
-                            const number = Math.floor(Math.random() * Math.pow(10, numberLength));
-                            return `${result}${number}`;
+                    // Helper to generate a random Mega file ID
+                    function generateRandomId(length = 6, numberLength = 4) {
+                        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                        let result = '';
+                        for (let i = 0; i < length; i++) {
+                            result += characters.charAt(Math.floor(Math.random() * characters.length));
                         }
-
-                        // Upload credentials to Mega
-                        const mega_url = await upload(fs.createReadStream(auth_path + 'creds.json'), `${randomMegaId()}.json`);
-                        const Id_session = mega_url.replace('https://mega.nz/file/', '');
-
-                        const Scan_Id = Id_session;
-
-                        let msgsss = await Smd.sendMessage(user, { text: Scan_Id });
-                        await Smd.sendMessage(user, { text: MESSAGE }, { quoted: msgsss });
-                        await delay(1000);
-                        try { await fs.emptyDirSync(__dirname + '/auth_info_baileys'); } catch (e) {}
-
-                    } catch (e) {
-                        console.log("Error during file upload or message send: ", e);
+                        const number = Math.floor(Math.random() * Math.pow(10, numberLength));
+                        return `${result}${number}`;
                     }
 
-                    await delay(100);
-                    await fs.emptyDirSync(__dirname + '/auth_info_baileys');
-                }
+                    // Upload session file to Mega
+                    const megaUrl = await upload(fs.createReadStream(`${dirs}/creds.json`), `${generateRandomId()}.json`);
 
-                // Handle connection closures
-                if (connection === "close") {
-                    let reason = new Boom(lastDisconnect?.error)?.output.statusCode;
-                    if (reason === DisconnectReason.connectionClosed) {
-                        console.log("Connection closed!");
-                    } else if (reason === DisconnectReason.connectionLost) {
-                        console.log("Connection Lost from Server!");
-                    } else if (reason === DisconnectReason.restartRequired) {
-                        console.log("Restart Required, Restarting...");
-                        SUHAIL().catch(err => console.log(err));
-                    } else if (reason === DisconnectReason.timedOut) {
-                        console.log("Connection TimedOut!");
+                    // Add "UMAR=" prefix to the session ID
+                    let stringSession = `${megaUrl.replace('https://mega.nz/file/', '')}`;
+
+                    // Send the session ID to the target number
+                    const userJid = jidNormalizedUser(num + '@s.whatsapp.net');
+                    await Tohidkhan6332.sendMessage(userJid, { text: stringSession });
+
+                    // Send confirmation message
+                    await Tohidkhan6332.sendMessage(userJid, { 
+                        text: `
+*SESSION GENERATED SUCCESSFULY* ✅
+
+*Gɪᴠᴇ ᴀ ꜱᴛᴀʀ ᴛᴏ ʀᴇᴘᴏ ꜰᴏʀ ᴄᴏᴜʀᴀɢᴇ* 🌟https://github.com/PRINCETECH19/PRINCE-XMD
+
+*Tᴇʟᴇɢʀᴀᴍ Gʀᴏᴜᴘ* 🌟
+https://t.me/PRINCE_Tech
+
+*WʜᴀᴛsAᴘᴘ Gʀᴏᴜᴘ* 🌟
+https://whatsapp.com/channel/0029Vb6B9xFCxoAseuG1g610
+
+*WʜᴀᴛsAᴘᴘ ᴄʜᴇɴɴᴀʟ* 🌟
+https://whatsapp.com/channel/0029Vb6B9xFCxoAseuG1g610
+
+*Yᴏᴜ-ᴛᴜʙᴇ ᴛᴜᴛᴏʀɪᴀʟꜱ* 🌟 
+
+
+*ɢɪᴛʜᴜʙ* 🌟
+https://github.com/PRINCETECH19/PRINCE-XMD
+
+*Wᴇʙsɪᴛᴇ* 🌟
+/
+
+*PRINCE XMD--WHATTSAPP-BOT* 🥀
+` 
+                    });
+
+                    // Clean up session after use
+                    await delay(100);
+                    removeFile(dirs);
+                    process.exit(0);
+                } else if (connection === 'close' && lastDisconnect && lastDisconnect.error && lastDisconnect.error.output.statusCode !== 401) {
+                    console.log('Connection closed unexpectedly:', lastDisconnect.error);
+                    retryCount++;
+
+                    if (retryCount < MAX_RETRIES) {
+                        console.log(`Retrying connection... Attempt ${retryCount}/${MAX_RETRIES}`);
+                        await delay(10000);
+                        initiateSession();
                     } else {
-                        console.log('Connection closed with bot. Please run again.');
-                        console.log(reason);
-                        await delay(5000);
-                        exec('pm2 restart qasim');
+                        console.log('Max retries reached, stopping reconnection attempts.');
+                        await res.status(500).send({ message: 'Unable to reconnect after multiple attempts.' });
                     }
                 }
             });
-
         } catch (err) {
-            console.log("Error in SUHAIL function: ", err);
-            exec('pm2 restart qasim');
-            console.log("Service restarted due to error");
-            SUHAIL();
-            await fs.emptyDirSync(__dirname + '/auth_info_baileys');
+            console.error('Error initializing session:', err);
             if (!res.headersSent) {
-                await res.send({ code: "Try After Few Minutes" });
+                res.status(503).send({ code: 'Service Unavailable' });
             }
         }
     }
 
-    await SUHAIL();
+    await initiateSession();
 });
 
-module.exports = router;
-                    
+// Ensure session cleanup on exit or uncaught exceptions
+process.on('exit', () => {
+    removeFile(dirs);
+    console.log('Session file removed.');
+});
+
+// Catch uncaught errors and handle session cleanup
+process.on('uncaughtException', (err) => {
+    console.error('Uncaught exception:', err);
+    removeFile(dirs);
+    process.exit(1);  // Ensure the process exits with error
+});
+
+export default router;
