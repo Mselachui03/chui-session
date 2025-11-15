@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>Lazack Solutions Bots</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+  <style>
+    :root {
+      --primary-color: #00ff9d;
+      --text-color: #ffffff;
+      --background-color: #000000;
+      --input-bg: #e0ffe9;
+      --error-color: #ff4444;
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background: var(--background-color);
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+      padding: 20px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 2;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .box {
+      width: 100%;
+      padding: 25px;
+      background-color: var(--background-color);
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 0 25px var(--primary-color);
+      z-index: 2;
+      border: 1px solid rgba(0, 255, 157, 0.3);
+    }
+
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; text-shadow: 0 0 5px var(--primary-color), 0 0 20px var(--primary-color); }
+    }
+
+    .title, .subtitle {
+      color: var(--primary-color);
+      animation: flicker 2s infinite alternate;
+      margin: 10px 0;
+    }
+
+    .title {
+      font-size: 1.5rem;
+      margin-top: 15px;
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+
+    .input-container {
+      display: flex;
+      width: 100%;
+      margin-top: 15px;
+    }
+
+    .input-container input,
+    .input-container button {
+      height: 3rem;
+      font-size: 1rem;
+      border: none;
+      outline: none;
+      box-sizing: border-box;
+      transition: none !important;
+      transform: none !important;
+      resize: none !important;
+      appearance: none;
+    }
+
+    .input-container input {
+      width: 70%;
+      border-radius: 0.8rem 0 0 0.8rem;
+      background: var(--input-bg);
+      color: #000;
+      padding-left: 1rem;
+      border: 2px solid transparent;
+    }
+
+    .input-container input:focus {
+      border-color: var(--primary-color);
+    }
+
+    .input-container button {
+      width: 30%;
+      border-radius: 0 0.8rem 0.8rem 0;
+      background: var(--primary-color);
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .input-container button:hover {
+      background: #00e68a;
+    }
+
+    .input-container button:disabled {
+      background: #cccccc;
+      cursor: not-allowed;
+    }
+
+    .status-message {
+      color: var(--text-color);
+      display: block;
+      margin-top: 20px;
+      font-weight: bold;
+      min-height: 24px;
+    }
+
+    .error-message {
+      color: var(--error-color);
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .code-display {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 15px;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .code-display:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .code-text {
+      color: var(--primary-color);
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin: 0;
+    }
+
+    .code-value {
+      color: var(--text-color);
+      font-size: 1.4rem;
+      margin: 5px 0 0 0;
+      font-weight: bold;
+    }
+
+    .copy-hint {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.8rem;
+      margin-top: 5px;
+    }
+
+    /* Neon dot background animation */
+    .neon-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--background-color);
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .dot {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: var(--primary-color);
+      border-radius: 50%;
+      animation: rise 5s linear infinite;
+      opacity: 0.6;
+    }
+
+    @keyframes rise {
+      0% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 0.2;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1);
+        opacity: 1;
+      }
+    }
+
+    .loader {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: var(--primary-color);
+      animation: spin 1s ease-in-out infinite;
+      margin-right: 10px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="neon-bg" id="dots"></div>
+
+  <div class="container">
+    <div class="box" id="box">
+      <div id="text">
+        <i class="fa fa-robot" style="color:#00ff9d; font-size: 2rem;"></i>
+        <h3 class="title">𝐋𝐚𝐳𝐚𝐜𝐤 𝐒𝐨𝐥𝐮𝐭𝐢𝐨𝐧𝐬 𝐁𝐨𝐭𝐬</h3>
+        <h6 class="subtitle">𝙲𝚛𝚎𝚊𝚝𝚎𝚍 𝙱𝚢 𝐋𝐚𝐳𝐚𝐜𝐤 𝐎𝐫𝐠𝐚𝐧𝐢𝐬𝐚𝐭𝐢𝐨𝐧</h6>
+        <h6 class="subtitle">🔢 Enter your number with country code</h6>
+
+        <form id="number-form">
+          <div class="input-container">
+            <input 
+              placeholder="2556xxxxxxx" 
+              type="tel" 
+              id="number-input"
+              aria-label="WhatsApp number with country code"
+              required
+            >
+            <button type="submit" id="submit-button">Submit</button>
+          </div>
+        </form>
+
+        <div id="status-message" class="status-message"></div>
+        <div id="error-message" class="error-message"></div>
+        <main id="result-container"></main>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"></script>
+  <script>
+    // DOM elements
+    const resultContainer = document.getElementById("result-container");
+    const submitButton = document.getElementById("submit-button");
+    const numberInput = document.getElementById("number-input");
+    const statusMessage = document.getElementById("status-message");
+    const errorMessage = document.getElementById("error-message");
+    const numberForm = document.getElementById("number-form");
+
+    // Copy code to clipboard
+    async function copyCode() {
+      const codeElement = document.getElementById("code-value");
+      if (!codeElement) return;
+      
+      try {
+        await navigator.clipboard.writeText(codeElement.innerText);
+        const copyHint = document.getElementById("copy-hint");
+        if (copyHint) {
+          copyHint.innerText = "Code copied to clipboard!";
+          copyHint.style.color = "#00ff9d";
+          
+          setTimeout(() => {
+            copyHint.innerText = "Click to copy";
+            copyHint.style.color = "rgba(255, 255, 255, 0.7)";
+          }, 2000);
+        }
+      } catch (err) {
+        console.error("Failed to copy code: ", err);
+        errorMessage.innerText = "Failed to copy code. Please try again.";
+      }
+    }
+
+    // Validate phone number
+    function validatePhoneNumber(number) {
+      const cleanedNumber = number.replace(/[^0-9]/g, "");
+      return cleanedNumber.length >= 11;
+    }
+
+    // Show loading state
+    function setLoadingState(isLoading) {
+      if (isLoading) {
+        submitButton.disabled = true;
+        submitButton.innerHTML = '<span class="loader"></span> Processing';
+        statusMessage.innerText = "Please wait while we process your request...";
+        errorMessage.innerText = "";
+        resultContainer.innerHTML = "";
+      } else {
+        submitButton.disabled = false;
+        submitButton.innerText = "Submit";
+        statusMessage.innerText = "";
+      }
+    }
+
+    // Handle form submission
+    numberForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      
+      if (!numberInput.value.trim()) {
+        errorMessage.innerText = "Please enter your WhatsApp number";
+        return;
+      }
+      
+      if (!validatePhoneNumber(numberInput.value)) {
+        errorMessage.innerText = "Please enter a valid phone number with country code";
+        return;
+      }
+      
+      const number = numberInput.value.replace(/[^0-9]/g, "");
+      
+      // Format the number for display
+      numberInput.type = "text";
+      numberInput.value = "+" + number;
+      numberInput.style.color = "black";
+      
+      setLoadingState(true);
+      
+      try {
+        const response = await axios(`/code?number=${number}`);
+        const code = response.data.code || "Service Unavailable";
+        
+        resultContainer.innerHTML = `
+          <div class="code-display" onclick="copyCode()">
+            <p class="code-text">Your Pairing Code:</p>
+            <p id="code-value" class="code-value">${code}</p>
+            <p id="copy-hint" class="copy-hint">Click to copy</p>
+          </div>
+        `;
+        
+        errorMessage.innerText = "";
+      } catch (error) {
+        console.error("Error fetching code:", error);
+        errorMessage.innerText = "Failed to get pairing code. Please try again later.";
+        resultContainer.innerHTML = "";
+      } finally {
+        setLoadingState(false);
+      }
+    });
+
+    // Dot animation
+    const bg = document.getElementById("dots");
+    for (let i = 0; i < 80; i++) {
+      const dot = document.createElement("div");
+      dot.classList.add("dot");
+      dot.style.left = Math.random() * 100 + "vw";
+      dot.style.animationDuration = 3 + Math.random() * 5 + "s";
+      dot.style.animationDelay = Math.random() * 5 + "s";
+      bg.appendChild(dot);
+    }
+  </script>
+</body>
+  </html>

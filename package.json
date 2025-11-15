@@ -1,0 +1,38 @@
+{
+  "name": "mini-bot",
+  "version": "1.0.0",
+  "description": "MULTIDEVICE WHATSAPP MINI BOT",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "baileys": "github:nstar-y/bail",
+    "express": "^5.0.3",
+    "fs-extra": "^11.0.4",
+    "pino": "^9.9.0",
+    "jimp": "^0.16.13",
+    "@octokit/rest": "^22.0.0",
+    "denethdev-ytmp3": "1.0.3",
+    "cheerio": "1.1.0",
+    "ruhend-scraper": "9.0.1",
+    "yt-search": "2.12.1",
+    "node-fetch": "3.3.2",
+    "path": "^0.12.7",
+    "axios": "^1.2.5",
+    "moment-timezone": "^0.6.0"
+  },
+  "engines": {
+    "node": ">=18.x"
+  },
+  "keywords": [
+    "whatsapp",
+    "bot",
+    "multi-device",
+    "baileys",
+    "lazack-md"
+  ],
+  "author": "lazackdevs",
+  "license": "MIT"
+}
