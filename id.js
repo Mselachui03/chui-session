@@ -1,5 +1,5 @@
 function makeid(num = 4) {
-  let result = "";
+  let result = "MSELACHUI-XMD~";
   let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
   var characters9 = characters.length;
   for (var i = 0; i < num; i++) {
