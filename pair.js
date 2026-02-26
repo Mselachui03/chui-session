@@ -71,7 +71,7 @@ ______________________________________
 ╔═════◇
 ║  『••• 𝗩𝗶𝘀𝗶𝘁 𝗙𝗼𝗿 𝗛𝗲𝗹𝗽 •••』
 ║❒ *Owner:* _https://wa.me/260769355624_
-║❒ *Repo:* _https://github.com/Mselachui03/𝚳𝐒𝚵𝐋𝚫-𝐂𝚮𝐔𝚰-𝚾𝚳𝐃
+║❒ *Repo:* _https://github.com/Mselachui03/MSELA-CHUI-BOT
 ║❒ *WaChannel:* _https://whatsapp.com/channel/0029Vb6Thzr90x2zmqGF9G0J _
 ║❒ 
 ╚════════════════════════╝
