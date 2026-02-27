@@ -62,7 +62,7 @@ router.get('/', async (req, res) => {
 
 
 ❒❒❒❒❒❒❒❒❒❒❒❒❒❒❒❒❒❒❒❒❒❒
-*_Pair Code Connected by Rahmani_MD*
+*_Pair Code Connected by 𝚳𝐒𝚵𝐋𝚫-𝐂𝚮𝐔𝚰-𝚾𝚳𝐃*
 ______________________________________
 ╔════◇
 ║ *『 THANKS 👍 FOR  SHOWING LOVE』*
